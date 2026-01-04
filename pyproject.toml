@@ -1,0 +1,28 @@
+[project]
+name = "tron"
+version = "0.0.1.dev0"
+description = "Add your description here"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Oliver Lambson", email = "oliverlambson@gmail.com" }]
+requires-python = ">=3.14"
+dependencies = []
+
+[tool.maturin]
+module-name = "tron._core"
+python-packages = ["tron"]
+python-source = "src"
+manifest-path = "crates/tron-py/Cargo.toml"
+
+[tool.uv]
+cache-keys = [
+  { file = "pyproject.toml" },
+  { file = "crates/**/*.rs" },
+  { file = "Cargo.toml" },
+  { file = "Cargo.lock" },
+]
+
+[build-system]
+requires = ["maturin>=1.0,<2.0"]
+build-backend = "maturin"

@@ -1,0 +1,13 @@
+[package]
+name = "tron-py"
+version = "0.0.1"
+edition = "2024"
+publish = false
+
+[lib]
+name = "_core"
+crate-type = ["cdylib"]
+
+[dependencies]
+tron = { path = "../tron" }
+pyo3 = { version = "0.27.1", features = ["extension-module", "abi3-py39"] }
