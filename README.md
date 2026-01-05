@@ -5,6 +5,10 @@
 >
 > The implementation work is being done on the [impl](https://github.com/oliverlambson/tron-rust/tree/impl) branch, check that out for progress in the meantime.
 
+<picture>
+  <img src="assets/logo.png" alt="TRON logo">
+</picture>
+
 Rust implementation of the [TRON](https://github.com/delaneyj/tron/tree/main) binary format, with Python bindings.
 
 The goal is to implement a dict-like interface for TRON:
