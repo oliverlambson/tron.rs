@@ -1,3 +1,4 @@
+pub mod footer;
 pub mod value;
 pub(crate) mod xxh32;
 
