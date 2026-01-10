@@ -1,16 +1,16 @@
-//! Trailer.
+//! Root footer.
 
-use crate::document::TREE_MAGIC;
+const MAGIC: &[u8; 4] = b"TRON";
 
-/// Tree document trailer (12 bytes).
+/// Document root node footer
 #[derive(Debug, PartialEq)]
-pub struct Trailer {
+pub struct Footer {
     pub root_node_offset: u32,
     pub prev_root_node_offset: u32,
 }
-impl Trailer {
+impl Footer {
     pub fn new(data: &[u8; 12]) -> Option<Self> {
-        if data.get(8..12)? != TREE_MAGIC {
+        if data.get(8..12)? != MAGIC {
             return None;
         }
         Some(Self {
@@ -31,7 +31,7 @@ mod tests {
             0x10, 0x00, 0x00, 0x00, // prev_root_node_offset: 0x10
             b'T', b'R', b'O', b'N', // magic: TRON
         ];
-        let trailer = Trailer::new(&data).unwrap();
+        let trailer = Footer::new(&data).unwrap();
         assert_eq!(trailer.root_node_offset, 0x20);
         assert_eq!(trailer.prev_root_node_offset, 0x10);
     }
@@ -39,6 +39,6 @@ mod tests {
     #[test]
     fn parse_trailer_rejects_non_tree() {
         let data: [u8; 12] = [0; 12];
-        assert_eq!(Trailer::new(&data), None);
+        assert_eq!(Footer::new(&data), None);
     }
 }
