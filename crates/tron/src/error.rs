@@ -39,6 +39,14 @@ pub enum Error {
     IndexOutOfBounds { index: u32, length: u32 },
     /// HAMT traversal exceeded maximum depth (7).
     MaxDepthExceeded,
+
+    // JSON errors
+    /// Failed to parse JSON input.
+    JsonParse(String),
+    /// Failed to serialize to JSON.
+    JsonSerialize(String),
+    /// f64 is NaN or Infinity (not representable in JSON).
+    NonFiniteFloat(f64),
 }
 
 impl fmt::Display for Error {
@@ -61,6 +69,9 @@ impl fmt::Display for Error {
                 write!(f, "index {index} out of bounds (length={length})")
             }
             Error::MaxDepthExceeded => write!(f, "max HAMT depth exceeded"),
+            Error::JsonParse(msg) => write!(f, "JSON parse error: {msg}"),
+            Error::JsonSerialize(msg) => write!(f, "JSON serialize error: {msg}"),
+            Error::NonFiniteFloat(n) => write!(f, "cannot encode non-finite float {n} as JSON"),
         }
     }
 }

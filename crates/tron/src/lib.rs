@@ -49,6 +49,7 @@ pub mod arr;
 pub mod document;
 pub mod encode;
 pub mod error;
+pub mod json;
 pub mod map;
 pub mod tag;
 pub mod value;
@@ -57,6 +58,7 @@ mod xxh32;
 // Re-exports for convenience
 pub use document::Document;
 pub use error::{Error, Result};
+pub use json::{from_json, to_json};
 pub use value::{ArrNode, MapBranch, MapLeaf, MapNode, TypedValue, Value};
 
 // Re-export xxh32 for users who need direct access to the hash function
