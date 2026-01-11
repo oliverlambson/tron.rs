@@ -1,4 +1,7 @@
+pub mod arr;
+pub mod document;
 pub mod footer;
+pub mod map;
 pub mod value;
 pub(crate) mod xxh32;
 
