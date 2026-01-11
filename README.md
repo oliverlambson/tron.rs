@@ -3,7 +3,7 @@
 > [!WARNING]
 > Work in progress, implementation incomplete.
 >
-> The implementation work is being done on the [impl](https://github.com/oliverlambson/tron-rust/tree/impl) branch, check that out for progress in the meantime.
+> The implementation work is being done on the [impl-2](https://github.com/oliverlambson/tron-rust/tree/impl-2) branch, check that out for progress in the meantime.
 
 <picture>
   <img src="assets/logo.png" alt="TRON logo">
