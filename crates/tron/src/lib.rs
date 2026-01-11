@@ -1,5 +1,6 @@
 pub mod arr;
 pub mod document;
+pub mod encode;
 pub mod footer;
 pub mod map;
 pub mod value;
